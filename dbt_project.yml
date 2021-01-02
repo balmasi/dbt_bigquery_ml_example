@@ -1,0 +1,48 @@
+
+# Name your project! Project names should contain only lowercase characters
+# and underscores. A good package name should reflect your organization's
+# name or the intended use of these models
+name: 'dbt_ml_example'
+version: '1.0.0'
+config-version: 2
+
+# This setting configures which "profile" dbt uses for this project.
+profile: dbt_bqml_example
+
+# These configurations specify where dbt should look for different types of files.
+# The `source-paths` config, for example, states that models in this project can be
+# found in the "models/" directory. You probably won't need to change these!
+source-paths: ["models"]
+analysis-paths: ["analysis"]
+test-paths: ["tests"]
+data-paths: ["data"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+target-path: "target"  # directory which will store compiled SQL files
+clean-targets:         # directories to be removed by `dbt clean`
+    - "target"
+    - "dbt_modules"
+
+
+on-run-start:
+    # Create the ml_model_audit DATASET at the start of the dbt run, if it doesn't exist
+    - '{% do adapter.create_schema(api.Relation.create(target.project, "ml_model_audit")) %}'
+    # Create the ml_model_audit TABLE at the start of the dbt run, if it doesn't exist
+    - "{{ dbt_ml.create_model_audit_table() }}"
+
+models:
+  dbt_ml_example:
+      # Applies to all files under models/example/
+      example:
+        materialized: view
+        
+        # Applies to the models/example/train.sql file only
+        ml_logreg:
+            materialized: model
+            post-hook: "{{ dbt_ml.model_audit() }}"    
+
+vars:
+  "dbt_ml:audit_schema": "ml_model_audit"
+  "dbt_ml:audit_table": "ml_models"
+

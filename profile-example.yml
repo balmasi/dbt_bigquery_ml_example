@@ -1,0 +1,12 @@
+dbt_bqml_example: # this needs to match the profile: in your dbt_project.yml file
+  target: default
+  outputs:
+    default:
+      type: bigquery
+      method: OAuth
+      project: your-google-cloud-project # Change this to your google project
+      dataset: dbt_ml_example
+      threads: 8
+      timeout_seconds: 300
+      location: US
+      priority: interactive

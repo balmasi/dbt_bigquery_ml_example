@@ -1,0 +1,8 @@
+PassengerId,Pclass,Name,Sex,Age,SibSp,Parch,Ticket,Fare,Cabin,Embarked
+1000,3,"Fake Person 1",male,22,1,0,A/5 21171,7.25,,S
+1001,1,"Fake Person 2",female,38,1,0,PC 17599,71.2833,C85,C
+1002,3,"Fake Person 3",female,26,0,0,STON/O2. 3101282,7.925,,S
+1003,1,"Fake Person 4",female,35,1,0,113803,53.1,C123,S
+1004,3,"Fake Person 5",male,35,0,0,373450,8.05,,S
+1005,3,"Fake Person 6",male,,0,0,330877,8.4583,,Q
+1006,1,"Fake Person 7",male,54,0,0,17463,51.8625,E46,S
