@@ -1,15 +1,11 @@
-Welcome to your new dbt project!
+# Example dbt + Bigquery ML project
+This project trains a logistic regression classifier for passenger survivorship on the Titanic using dbt and Bigquery ML.
 
-### Using the starter project
+To get up and running with a step-by-step walkthrough, visit the [accompanying blog post](https://showmethedata.blog/dbt-bigquery-ml).
 
-Try running the following commands:
-- dbt run
-- dbt test
-
-
-### Resources:
-- Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
-- Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
-- Join the [chat](http://slack.getdbt.com/) on Slack for live discussions and support
-- Find [dbt events](https://events.getdbt.com) near you
-- Check out [the blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
+## Quickstart
+1. Set up your bigquery project
+2. Install dbt
+3. run `dbt deps`
+4. run `dbt seed`
+5. run `dbt run`

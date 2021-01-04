@@ -1,4 +1,3 @@
-
 {{
     config(
         materialized='table'
@@ -7,7 +6,7 @@
 
 WITH predict_features AS (
     SELECT
-        * EXCEPT(Name, Ticket)
+        * EXCEPT(Name, Ticket, PassengerId)
     FROM
         {{ ref('predict_me') }}
 )

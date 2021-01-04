@@ -1,0 +1,8 @@
+version: 2
+
+seeds:
+    - name: raw_titanic
+      description: "The survivorship dataset we'll use to train our ML model"
+
+    - name: predict_me
+      description: "Fake individuals not seen in our training data we will be prediciting survivorship for"

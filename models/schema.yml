@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: ml_logreg
+    description: The logistic regression model for predicting survivorship of Titanic passengers
+
+  - name: features
+    descriptions: "The features we want to use to train and evaluate our machine learning model"
+  
+  - name: ml_predicted
+    descriptions: "Our survivorship predictions for the unseen data in the 'predict_me' table"

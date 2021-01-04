@@ -32,17 +32,12 @@ on-run-start:
     - "{{ dbt_ml.create_model_audit_table() }}"
 
 models:
-  dbt_ml_example:
-      # Applies to all files under models/example/
-      example:
+    dbt_ml_example:
+        # Applies to all files under models/example/ unless overriden in sql file
         materialized: view
-        
-        # Applies to the models/example/train.sql file only
-        ml_logreg:
-            materialized: model
-            post-hook: "{{ dbt_ml.model_audit() }}"    
+            
 
 vars:
-  "dbt_ml:audit_schema": "ml_model_audit"
-  "dbt_ml:audit_table": "ml_models"
+    "dbt_ml:audit_schema": "ml_model_audit"
+    "dbt_ml:audit_table": "ml_models"
 
